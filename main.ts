@@ -105,7 +105,7 @@ export default class RegexPipeline extends Plugin {
 			for (let i = 0; i < Math.min(this.configs.quickRules, this.rules.length); i++)
 			{
 				let rPath = this.pathToRulesets + "/" + this.rules[i]
-				
+
 				menu.addItem((item) => {
 					item.setTitle("Regex Pipeline: " + this.rules[i])
 					.onClick(() => {
@@ -238,7 +238,7 @@ class ORPSettings extends PluginSettingTab {
 					if (v != this.plugin.configs.quickRules) this.plugin.quickRulesChanged = true;
 					this.plugin.configs.quickRules = v;
 				})
-			}) 
+			})
 		new Setting(this.containerEl)
 			.setName("Quick Rule Commands")
 			.setDesc("The first N rulesets in your index file will be available as Obsidian commands. When changing this count or re-ordering rules, existing commands will not be removed until next reload (You can also manually re-enable the plugin).")
@@ -251,7 +251,7 @@ class ORPSettings extends PluginSettingTab {
 					this.plugin.configs.quickCommands = v;
 					this.plugin.updateQuickCommands();
 				})
-			}) 
+			})
 		new Setting(this.containerEl)
 			.setName("Save Rules In Vault")
 			.setDesc("Reads rulesets from \".obsidian/regex-rulesets\" when off, \"./regex-ruleset\" when on (useful if you are user of ObsidianSync). ")
@@ -259,7 +259,7 @@ class ORPSettings extends PluginSettingTab {
 				c.setValue(this.plugin.configs.rulesInVault)
 				c.onChange(v => {
 					this.plugin.configs.rulesInVault = v
-					if (v) this.plugin.pathToRulesets = "/regex-rulesets"
+					if (v) this.plugin.pathToRulesets = "/Internal/regex-rulesets"
 					else this.plugin.pathToRulesets = this.app.vault.configDir + "/regex-rulesets"
 				})
 			})
