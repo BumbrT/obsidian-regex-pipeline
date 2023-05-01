@@ -21,7 +21,7 @@ export default class RegexPipeline extends Plugin {
 		this.addSettingTab(new ORPSettings(this.app, this))
 		this.configs = await this.loadData()
 		if (this.configs == null) this.configs = new SavedConfigs(3, 3, false)
-		if (this.configs.rulesInVault) this.pathToRulesets = "/regex-rulesets"
+		if (this.configs.rulesInVault) this.pathToRulesets = "/Internal/regex-rulesets"
 		this.menu = new ApplyRuleSetMenu(this.app, this)
 		this.menu.contentEl.className = "rulesets-menu-content"
 		this.menu.titleEl.className = "rulesets-menu-title"
